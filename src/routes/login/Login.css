@@ -1,8 +1,10 @@
 .login__container{
    display: flex;
+   flex-direction: column;
    align-items: center;
    justify-content: center;
    height: 50vh;
+   font-family: Lato, sans-serif;
 }
 
 .login{
@@ -35,4 +37,48 @@
    border-radius: 20px;
    margin-top: 20px;
    color: white;
+}
+.otp > input{
+   font-size: 20px;
+   margin-top: 20px;
+}
+
+.name__input{
+   width: 300px;
+   height: 36px;
+   padding: 10px 10px;
+   background-color: #f4f4f4;
+   color: #000000;
+   font-size: 27px;
+   border-radius: 20px;
+   border: none;
+   outline: none;
+   text-align: center;
+}
+
+.verify__phone{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.verify__phone p{
+   width: 400px;
+   text-align: center;
+}
+.verify__phone p span{
+   color: black;
+   cursor: pointer;
+   text-decoration: underline;
+}
+.verify__btn{
+   width: 300px;
+   height: 50px;
+   padding: 10px 10px;
+   border: none;
+   outline: none;
+   background-color: #D4D4D4;
+   border-radius: 20px;
+   margin-top: 20px;
+   color: white;
+   font-size: 22px;
 }
