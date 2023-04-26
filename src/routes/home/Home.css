@@ -1,0 +1,66 @@
+.swiper {
+   width: 100%;
+   height: 100%;
+ }
+ 
+.swiper-slide {
+   text-align: center;
+   font-size: 18px;
+   background: #fff;
+ 
+   /* Center slide text vertically */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 80%;
+   height: 400px;
+   margin-left: 130px;
+}
+
+.swiper-slide img {
+   border-radius: 10px;
+   /* display: flex; */
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+
+.main__delivery__container{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   height: 40px;
+   margin-top: 30px;
+}
+.delivery__type{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: #F4F4F4;
+   width: 450px;
+   height: 40px;
+   border-radius: 50px;
+   transition: 0.5s;
+}
+.delivery__type .delivery__item{
+   border-radius: 50px;
+   width: 220px;
+   height: 33px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   cursor: pointer;
+   transition: 0.5s;
+}
+.adress{
+   border: 1px solid yellowgreen;
+   width: 650px;
+   border-radius: 10px;
+   cursor: pointer;
+}
+.adress div{
+   display: flex;
+   height: 40px;
+   align-items: center;
+   margin-left: 10px;
+}
