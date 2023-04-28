@@ -54,7 +54,10 @@ function Home() {
          <div className="main__delivery__container container">
             <div className="delivery__type">
                {
-                  delivery.map(e => <div className='delivery__item'  style={deliveryId === e.id ? {backgroundColor: "white"}: null} onClick={() => setDeliveryId(e.id)}>
+                  delivery.map(e => <div 
+                     key={e.id} 
+                     className='delivery__item'  style={deliveryId === e.id ? {backgroundColor: "white"}: null} 
+                     onClick={() => setDeliveryId(e.id)}>
                      <p>{e.title}</p>
                   </div>)
                }
@@ -63,6 +66,7 @@ function Home() {
                <div>
                   {
                      delivery__location.map(e => <div 
+                           key={e.id}
                            style={deliveryId === e.id ? {display: "flex"} : {display: "none"}} 
                            onClick={() => deliveryId === 0 ?  console.log("karta") : console.log("div")} >
                         <h4>{e.title}</h4>
