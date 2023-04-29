@@ -21,8 +21,9 @@ function Home() {
    const [productId, setProductId] = useState(0)
    const [singlePro, setSinglePro] = useState(false)
 
-   const singleProduct = PRODUCT.find(pro => {return pro.id === productId})
-   // console.log(singleProduct);
+   const singleProduct = PRODUCT.find(pro => { return pro.id === productId })
+
+   console.log(singleProduct);
    // console.log(productId);
 
    const user = localStorage.getItem("email")
@@ -87,7 +88,7 @@ function Home() {
       setSelectedBranch(e)
       setBranch(false)
    }
-   function setSingleProduct(e){
+   function setSingleProduct(e) {
       setProductId(e.id)
       setSinglePro(true)
    }
@@ -196,22 +197,14 @@ function Home() {
                <h1>kombo</h1>
                <div className="kombo__product">
                   {
-                     PRODUCT.map(e => <div onClick={() => setSingleProduct(e)} className='product'>
+                     PRODUCT.map(e => <Link to={`/singlepage/${e.id}`} state={e} onClick={() => setSingleProduct(e)} className='product'>
                         <img src={e.img} alt="" />
-                        <h3>{e.desc}</h3>
-                        <p>{e.price}</p>
-                     </div>)
+                        <h3>{e.title}</h3>
+                        <span>{e.desc}</span>
+                        <p>{e.price} So'm</p>
+                     </Link>)
                   }
                </div>
-            </div>
-         </div>
-         <div className="single__product__container">
-            <div className="single__product">
-               {/* {
-                  singleProduc?.map(e => <div>
-
-                  </div>)
-               } */}
             </div>
          </div>
       </div>

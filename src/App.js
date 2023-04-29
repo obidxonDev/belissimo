@@ -7,6 +7,7 @@ import Login from './routes/login/Login';
 import Profil from './components/profil/Profil';
 import AddAdress from './components/addAddress/AddAdress';
 import Footer from './components/footer/Footer';
+import SingleRoute from './routes/singleProduct/SingleRoute';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/login' element={<Login/>}/>
         <Route path='/profil' element={<Profil/>}/>
         <Route path='/addAdress' element={<AddAdress/>}/>
+        <Route path='/singlepage/:id' element={<SingleRoute/>}/>
       </Routes>
       <Footer/>
     </div>

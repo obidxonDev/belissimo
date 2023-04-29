@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { AiOutlineUser } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 import './Navbar.css'
 
@@ -61,7 +62,8 @@ function Navbar() {
             </div>
             <div className="language">O'zbek</div>
             {isUser ?
-               <div>
+               <div className='profil'>
+                  <AiOutlineUser/>
                   <Link to="/profil">Profil</Link>
                </div>
                :
