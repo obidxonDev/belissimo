@@ -45,9 +45,9 @@ function Navbar() {
    return (
       <React.Fragment>
          <div className='navbar container'>
-            <div className="logo">
+            <Link to="/" className="logo">
                <img src="https://bellissimo.uz/_next/image?url=%2Fimages%2Flogo.png&w=320&q=75" alt="" />
-            </div>
+            </Link>
             <div className="location">
                <h3>Shahar: <span onClick={() => setLoc(!loc)} className='selected__loc'>{viloyat[locId].loc}</span></h3>
             </div>

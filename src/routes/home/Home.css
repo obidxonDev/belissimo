@@ -55,12 +55,232 @@
 .adress{
    border: 1px solid yellowgreen;
    width: 650px;
+   height: 40px;
    border-radius: 10px;
    cursor: pointer;
 }
-.adress div{
+.adress .adress_div{
    display: flex;
-   height: 40px;
    align-items: center;
+   height: 40px;
    margin-left: 10px;
+}
+
+.delivery__location{
+   position: fixed;
+   background-color: rgba(0, 0, 0, 0.801);
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   z-index: 10;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.delivery__box{
+   background-color: #fff;
+   border-radius: 10px;
+   height: auto;
+   width: 370px;
+   cursor: pointer;
+   font-weight: 600;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   gap: 10px;
+   position: relative;
+   overflow-x: auto;
+}
+.delivery__box svg{
+   position: absolute;
+   top: 10px;
+   right: 10px;
+   font-size: 30px;
+   color: red;
+}
+.addre{
+   background-color: #F4F4F4;
+   width: 90%;
+   border-radius: 10px;
+   padding: 10px 10px;
+}
+
+.addre span{
+   padding: 10px 20px;
+}
+
+.delivery__branch{
+   position: fixed;
+   background-color: rgba(0, 0, 0, 0.801);
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   z-index: 10;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.branches__div{
+   background-color: #fff;
+   border-radius: 10px;
+   height: 300px;
+   width: 370px;
+   cursor: pointer;
+   font-weight: 600;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   gap: 10px;
+   overflow-x: auto;
+   position: relative;
+}
+.branches__div svg{
+   position: absolute;
+   top: 10px;
+   right: 10px;
+   font-size: 30px;
+   color: red;
+}
+
+.branches__div::-webkit-scrollbar{
+   display: none;
+}
+
+.branches{
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
+
+.branches .p{
+   border-radius: 10px;
+   width: 300px;
+   padding: 10px 10px;
+   background-color: #F4F4F4;
+   /* margin: 0; */
+}
+
+.tabs__container{
+   height: 60px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   margin-top: 10px;
+   position: sticky;
+   top: 0;
+   z-index: 8;
+   background-color: #fff;
+}
+.tabs{
+   display: flex;
+   gap: 10px;
+}
+
+.tabs span{
+   background-color: #F4F4F4;
+   padding: 7px 15px;
+   border-radius: 20px;
+   cursor: pointer;
+   transition: .5s;
+}
+.tabs span:hover{
+   transition: .5s;
+   background-color: rgb(119, 212, 119);
+}
+.cart a{
+   padding: 7px 15px;
+   background-color: red;
+   color: #fff;
+   border-radius: 20px;
+}
+
+
+.kombo__product{
+   display: flex;
+   justify-content: space-between;
+   gap: 10px;
+   flex-wrap: wrap;
+}
+.product{
+   width: 271px;
+   height: 400px;
+   position: relative;
+   cursor: pointer;
+   box-shadow: 5px 2px 30px rgba(210, 208, 215, 0.3);
+   transition: .4s;
+}
+.product:hover{
+   transition: .4s;
+   transform: scale(1.03);
+   box-shadow: 5px 2px 30px rgba(210, 208, 215, 0.918);
+}
+.product p{
+   position: absolute;
+   bottom: 0;
+   left: 10px;
+   background-color: #F4F4F4;
+   border-radius: 20px;
+   padding: 10px 10px;
+}
+.product img{
+   width: 251px;
+   padding: 10px;
+   object-fit: cover;
+   border-radius: 20px;
+}
+.product h3{
+   margin: 0;
+   font-size: 17px;
+   padding: 10px 10px;
+   font-weight: 100;
+}
+
+.link__to__address{
+   width: 300px;
+   height: 35px;
+   padding: 10px 10px;
+   background-color: #D4D4D4;
+   border-radius: 20px;
+   margin-top: 20px;
+   margin-bottom: 10px;
+   color: #000;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.redirect__login{
+   width: 350px;
+   height: 300px;
+   background-color: #F4F4F4;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   color: #000;
+   border-radius: 20px;
+}
+.redirect__login h1{
+   text-align: center;
+}
+.redirect__login p{
+   margin: 0;
+}
+.redirect__login a{
+   width: 300px;
+   height: 35px;
+   padding: 10px 10px;
+   background-color: #D4D4D4;
+   border-radius: 20px;
+   margin-top: 20px;
+   margin-bottom: 10px;
+   color: #000;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 }

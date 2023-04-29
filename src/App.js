@@ -6,6 +6,7 @@ import Navbar from './components/header/Navbar';
 import Login from './routes/login/Login';
 import Profil from './components/profil/Profil';
 import AddAdress from './components/addAddress/AddAdress';
+import Footer from './components/footer/Footer';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/profil' element={<Profil/>}/>
         <Route path='/addAdress' element={<AddAdress/>}/>
       </Routes>
+      <Footer/>
     </div>
   );
 }

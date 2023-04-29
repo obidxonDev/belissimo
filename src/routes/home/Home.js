@@ -1,15 +1,36 @@
 import React, { useState } from 'react'
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
+import { useDispatch, useSelector } from 'react-redux';
+import { PRODUCT } from '../../static/static'
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 
 import './Home.css'
+import { Link } from 'react-router-dom';
+import { AiOutlineClose } from 'react-icons/ai';
 
 function Home() {
    const [deliveryId, setDeliveryId] = useState(0)
+   const [deliveryLoc, setDeliveryLoc] = useState(false)
+   const [branch, setBranch] = useState(false)
+   const [selectedLoc, setSelectedLoc] = useState(null)
+   const [selectedBranch, setSelectedBranch] = useState(null)
+   const [productId, setProductId] = useState(0)
+   const [singlePro, setSinglePro] = useState(false)
+
+   const singleProduct = PRODUCT.find(pro => {return pro.id === productId})
+   // console.log(singleProduct);
+   // console.log(productId);
+
+   const user = localStorage.getItem("email")
+
+
+
+   const selector = useSelector(s => s.address)
+
    const delivery = [
       {
          id: 0,
@@ -32,6 +53,45 @@ function Home() {
          title: "Filialni Tanlang"
       }
    ]
+   const branches = [
+      {
+         id: 0,
+         branch: "toshkent"
+      },
+      {
+         id: 1,
+         branch: "namangan"
+      },
+      {
+         id: 2,
+         branch: "fargona"
+      },
+      {
+         id: 3,
+         branch: "chirchiq"
+      },
+   ]
+
+   function getLoc(e) {
+      setSelectedLoc(e)
+      setDeliveryLoc(false)
+   }
+
+   function setLoc(e) {
+      setDeliveryId(e.id)
+      setSelectedLoc(null)
+      setSelectedBranch(null)
+   }
+
+   function getBranch(e) {
+      setSelectedBranch(e)
+      setBranch(false)
+   }
+   function setSingleProduct(e){
+      setProductId(e.id)
+      setSinglePro(true)
+   }
+
    return (
       <div className='home'>
          <div className="swiper">
@@ -54,25 +114,104 @@ function Home() {
          <div className="main__delivery__container container">
             <div className="delivery__type">
                {
-                  delivery.map(e => <div 
-                     key={e.id} 
-                     className='delivery__item'  style={deliveryId === e.id ? {backgroundColor: "white"}: null} 
-                     onClick={() => setDeliveryId(e.id)}>
+                  delivery.map(e => <div
+                     key={e.id}
+                     className='delivery__item' style={deliveryId === e.id ? { backgroundColor: "white" } : null}
+                     onClick={() => setLoc(e)}>
                      <p>{e.title}</p>
                   </div>)
                }
             </div>
             <div className="adress" >
-               <div>
+               <div className='adress_div'>
+
                   {
-                     delivery__location.map(e => <div 
+                     selectedLoc
+                        ?
+                        <h4 onClick={() => setDeliveryLoc(true)}>
+                           {selectedLoc.street} Ko'chasi {selectedLoc.home}-uy
+                        </h4>
+                        :
+                        delivery__location.map(e => <div
                            key={e.id}
-                           style={deliveryId === e.id ? {display: "flex"} : {display: "none"}} 
-                           onClick={() => deliveryId === 0 ?  console.log("karta") : console.log("div")} >
-                        <h4>{e.title}</h4>
+                           style={deliveryId === e.id ? { display: "flex" } : { display: "none" }}
+                           onClick={() => deliveryId === 0 ? setDeliveryLoc(true) : setBranch(true)}>
+                           <h4 >{e.title}</h4>
+                        </div>)
+                  }
+
+                  <div className="delivery__location" style={deliveryLoc ? { display: "flex" } : { display: "none" }}>
+                     {user ?
+                        <div className='delivery__box'>
+                           <AiOutlineClose onClick={() => setDeliveryLoc(false)} />
+                           <h3>Manzilni Tanlang</h3>
+                           {
+                              selector.map(e => <div className='addre' key={e.id}>
+                                 <span onClick={() => getLoc(e)}> {e.street} Ko'chasi {e.home}-uy</span>
+                              </div>
+                              )
+                           }
+                           <Link className='link__to__address' to="/addAdress">Manzil Qo'shish</Link>
+                        </div>
+                        :
+                        <div className='redirect__login'>
+                           <h2>Siz Ro'yxatdan O'tmagansiz</h2>
+                           <p>Manzil Qo'shish Uchun Tizimga Kiring</p>
+                           <Link to="/login">Kirish</Link>
+                        </div>
+                     }
+                  </div>
+                  <div className="delivery__branch" style={branch ? { display: "flex" } : { display: "none" }}>
+                     <div className="branches__div">
+                        <h3>Filialni Tanlang</h3>
+                        <AiOutlineClose onClick={() => setBranch(false)} />
+                        <div className="branches">
+                           {
+                              branches.map(e => <div className='p' onClick={() => getBranch(e)}>
+                                 {e.branch} Filiali
+                              </div>)
+                           }
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div className="tabs__container container">
+            <div className="tabs">
+               <span>Kombo</span>
+               <span>Pitsa</span>
+               <span>Gazaklar</span>
+               <span>Ichimliklar</span>
+               <span>Salatlar</span>
+               <span>Desertlar</span>
+               <span>Souslar</span>
+            </div>
+            <div className="cart">
+               <Link to="/cart">SavatCha</Link>
+            </div>
+         </div>
+         <div className="main__products container">
+            <div className="kombo">
+               <h1>kombo</h1>
+               <div className="kombo__product">
+                  {
+                     PRODUCT.map(e => <div onClick={() => setSingleProduct(e)} className='product'>
+                        <img src={e.img} alt="" />
+                        <h3>{e.desc}</h3>
+                        <p>{e.price}</p>
                      </div>)
                   }
                </div>
+            </div>
+         </div>
+         <div className="single__product__container">
+            <div className="single__product">
+               {/* {
+                  singleProduc?.map(e => <div>
+
+                  </div>)
+               } */}
             </div>
          </div>
       </div>
