@@ -8,6 +8,8 @@
    display: flex;
    flex-direction: row;
    justify-content: flex-start;
+   /* margin-top: 20px; */
+   padding-top: 20px;
 }
 .main__data div{
    width: 350px;
@@ -15,6 +17,7 @@
 .about h2,
 .payment h2,
 .add h2{
+   padding-bottom: 10px;
    color: #fff;
    font-weight: 600;
 }
@@ -22,6 +25,7 @@
 .payment p,
 .add p{
    color: #939596;
+   padding: 5px 0px;
 }
 .img{
    display: flex;

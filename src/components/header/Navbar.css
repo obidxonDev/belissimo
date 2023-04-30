@@ -44,6 +44,7 @@
    flex-direction: column;
    align-items: center;
    justify-content: center;
+   border-radius: 20px;
 }
 .viloyatlar__box{
    background-color: #fff;
@@ -54,6 +55,10 @@
 }
 .viloyatlar__box:hover{
    text-decoration: underline;
+}
+
+.viloyatlar__box p{
+   padding: 10px 10px;
 }
 
 .profil{

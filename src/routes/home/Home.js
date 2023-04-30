@@ -21,16 +21,16 @@ function Home() {
    const [productId, setProductId] = useState(0)
    const [singlePro, setSinglePro] = useState(false)
 
-   const singleProduct = PRODUCT.find(pro => { return pro.id === productId })
-
-   console.log(singleProduct);
+   // const singleProduct = PRODUCT.find(pro => { return pro.id === productId })
+   // console.log(singleProduct);
+   
    // console.log(productId);
-
+   
    const user = localStorage.getItem("email")
-
-
-
    const selector = useSelector(s => s.address)
+
+
+
 
    const delivery = [
       {
@@ -115,10 +115,7 @@ function Home() {
          <div className="main__delivery__container container">
             <div className="delivery__type">
                {
-                  delivery.map(e => <div
-                     key={e.id}
-                     className='delivery__item' style={deliveryId === e.id ? { backgroundColor: "white" } : null}
-                     onClick={() => setLoc(e)}>
+                  delivery.map(e => <div key={e.id} className='delivery__item' style={deliveryId === e.id ? { backgroundColor: "white" } : null} onClick={() => setLoc(e)}>
                      <p>{e.title}</p>
                   </div>)
                }
@@ -168,7 +165,7 @@ function Home() {
                         <AiOutlineClose onClick={() => setBranch(false)} />
                         <div className="branches">
                            {
-                              branches.map(e => <div className='p' onClick={() => getBranch(e)}>
+                              branches.map(e => <div className='p' onClick={() => getBranch(e)} key={e.id}>
                                  {e.branch} Filiali
                               </div>)
                            }
@@ -197,7 +194,7 @@ function Home() {
                <h1>kombo</h1>
                <div className="kombo__product">
                   {
-                     PRODUCT.map(e => <Link to={`/singlepage/${e.id}`} state={e} onClick={() => setSingleProduct(e)} className='product'>
+                     PRODUCT.map(e => <Link to={`/singlepage/${e.id}`} state={e} onClick={() => setSingleProduct(e)} className='product' key={e.id}>
                         <img src={e.img} alt="" />
                         <h3>{e.title}</h3>
                         <span>{e.desc}</span>
